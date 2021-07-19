@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  first:
+    image: first
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8082:8082

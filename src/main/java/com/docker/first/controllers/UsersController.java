@@ -1,8 +1,5 @@
 package com.docker.first.controllers;
 
-import com.docker.first.utils.CustomErrorType;
-import com.docker.first.utils.Message;
-// import com.docker.first.utils.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -45,5 +42,11 @@ public class UsersController extends SuperController<User, Long> {
         Long count = query.getTotalElements();
 
         return ResponseEntity.ok(Map.of("count", count, "list", list));
+    }
+
+    @GetMapping("/test")
+    // @Override
+    public ResponseEntity<?> test() {
+        return ResponseEntity.ok(Map.of("msg", "me & you"));
     }
 }

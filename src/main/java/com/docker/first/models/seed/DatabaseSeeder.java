@@ -15,7 +15,7 @@ import com.github.javafaker.Faker;
 import com.docker.first.models.*;
 import com.docker.first.repositories.UowService;
 
-@Component
+// @Component
 public class DatabaseSeeder /* implements ApplicationRunner */ {
 
     // private Logger logger = Logger.getLogger(DatabaseSeeder.class);

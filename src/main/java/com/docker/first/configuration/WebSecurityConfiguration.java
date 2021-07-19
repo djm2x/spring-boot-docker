@@ -21,7 +21,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.reactive.function.client.WebClient;
 
 // @Configuration
 // @Order(1)
@@ -32,9 +31,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         private final Logger logger;
         private final UsersRepository userRepo;
         private final JwtTokenFilter jwtTokenFilter;
-
-        @Value("${auth.server}")
-        private String authServer;
 
         @Value("${springdoc.api-docs.path}")
         private String restApiDocPath;
@@ -67,11 +63,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         @Bean
         public BCryptPasswordEncoder passwordEncoder() {
                 return new BCryptPasswordEncoder();
-        }
-
-        @Bean
-        public WebClient getWebClient() {
-                return WebClient.create(authServer);
         }
 
         @Override
