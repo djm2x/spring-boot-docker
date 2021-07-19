@@ -1,0 +1,12 @@
+{
+  "name": "spring-boot-docker",
+  "version": "1.0.0",
+  "scripts": {
+    "f": "cd angular && ng serve --hmr --port 4200",
+    "f-p": "cd angular && ng build --configuration=production",
+    "b": "mvn spring-boot:run",
+    "install": "mvn dependency:resolve && mvn clean install",
+    "1": "mvn clean install -Dmaven.test.skip=true",
+    "p": "mvn clean package"
+  }
+}
