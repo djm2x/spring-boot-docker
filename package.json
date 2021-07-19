@@ -7,6 +7,8 @@
     "b": "mvn spring-boot:run",
     "install": "mvn dependency:resolve && mvn clean install",
     "1": "mvn clean install -Dmaven.test.skip=true",
+    "df": "docker build -f ./Dockerfile . -t spring-boot-docker:1.0",
+    "dc": "docker-compose up --build -d",
     "p": "mvn clean package"
   }
 }
