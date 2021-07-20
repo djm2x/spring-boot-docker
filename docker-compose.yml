@@ -3,7 +3,7 @@ version: '3.4'
 services:
   postgres:
     image: postgres:latest
-    network_mode: bridge
+    # network_mode: bridge
     container_name: postgres
     volumes:
       - postgres-data:/var/lib/postgresql/data
@@ -18,8 +18,8 @@ services:
     restart: unless-stopped
   # APP*****************************************
   spring-boot-docker:
-    # image: first
-    network_mode: bridge
+    image: djm2x/first:0.1
+    # network_mode: bridge
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -30,8 +30,8 @@ services:
     restart: unless-stopped
     depends_on:
       - postgres
-    links:
-      - postgres
+    # links:
+    #   - postgres
     # restart: always
 volumes:
   postgres-data:

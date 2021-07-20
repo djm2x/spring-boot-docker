@@ -4,8 +4,6 @@ import java.util.Arrays;
 
 import javax.servlet.http.HttpServletResponse;
 
-import com.docker.first.repositories.UsersRepository;
-
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -29,7 +27,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         private final Logger logger;
-        private final UsersRepository userRepo;
         private final JwtTokenFilter jwtTokenFilter;
 
         @Value("${springdoc.api-docs.path}")
@@ -37,11 +34,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         @Value("${springdoc.swagger-ui.path}")
         private String swaggerPath;
 
-        public WebSecurityConfiguration(Logger logger, UsersRepository userRepo, JwtTokenFilter jwtTokenFilter) {
+        public WebSecurityConfiguration(Logger logger, JwtTokenFilter jwtTokenFilter) {
                 super();
 
                 this.logger = logger;
-                this.userRepo = userRepo;
                 this.jwtTokenFilter = jwtTokenFilter;
 
                 // Inherit security context in async function calls
@@ -50,12 +46,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         @Override
         protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-                // auth.userDetailsService(username -> userRepo
-                // .findByUsername(username)
-                // .orElseThrow( () -> new UsernameNotFoundException( String.format("User: %s,
-                // not found", username) ))
-                // );
-
                 super.configure(auth);
         }
 

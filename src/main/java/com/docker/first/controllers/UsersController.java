@@ -47,6 +47,6 @@ public class UsersController extends SuperController<User, Long> {
     @GetMapping("/test")
     // @Override
     public ResponseEntity<?> test() {
-        return ResponseEntity.ok(Map.of("msg", "me & you"));
+        return ResponseEntity.ok(Map.of("msg", "me & you & you again"));
     }
 }

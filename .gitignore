@@ -1,5 +1,5 @@
 HELP.md
-target/
+# target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# do not ignore target dir (needed due to the above bullet point)
+!/target
+# ignore files and sub dirs in the /target directory
+/target/*
+# but do not ignore the config.target file
+!/target/first-0.0.1-SNAPSHOT.jar

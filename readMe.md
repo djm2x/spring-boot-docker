@@ -69,3 +69,15 @@ C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps
 ```
 https://www.baeldung.com/spring-boot-war-tomcat-deploy
 ```
+
+
+docker image tag djm2x/first djm2x/first:0.1
+
+docker run -it --rm -p 8082:8082 --name first-ct djm2x/first:0.1
+
+docker run -it --rm -p 8082:8082 --name first-ct sb-build:0.1
+
+docker build -f ./Dockerfile.build . -t sb-build:0.1 
+
+docker build -f ./Dockerfile . -t sb-build:0.1
+docker run -it --rm -p 8082:8082 --name first-ct sb-build:0.1

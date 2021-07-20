@@ -15,15 +15,15 @@ import com.github.javafaker.Faker;
 import com.docker.first.models.*;
 import com.docker.first.repositories.UowService;
 
-// @Component
+@Component
 public class DatabaseSeeder /* implements ApplicationRunner */ {
 
     // private Logger logger = Logger.getLogger(DatabaseSeeder.class);
     @Autowired
     private UowService uow;
 
-    @PersistenceContext
-	EntityManager entityManager;
+    // @PersistenceContext
+	// EntityManager entityManager;
 
     private final Faker faker = new Faker(new Locale("fr"));
 
@@ -33,6 +33,10 @@ public class DatabaseSeeder /* implements ApplicationRunner */ {
 
     @EventListener
     public void seed(ApplicationReadyEvent event) {
+        if (uow.users.count() > 0) {
+            return;
+        }
+
         AddUsers();
     }
 

@@ -6,9 +6,10 @@
     "f-p": "cd angular && ng build --configuration=production",
     "b": "mvn spring-boot:run",
     "install": "mvn dependency:resolve && mvn clean install",
-    "1": "mvn clean install -Dmaven.test.skip=true",
+    "p": "mvn clean package -Dmaven.test.skip=true",
     "df": "docker build -f ./Dockerfile . -t spring-boot-docker:1.0",
     "dc": "docker-compose up --build -d",
-    "p": "mvn clean package"
+    "sql": "docker-compose -f postgres.docker-compose.yml up --build -d ",
+    "p1": "mvn clean package"
   }
 }
